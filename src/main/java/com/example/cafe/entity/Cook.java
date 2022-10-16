@@ -1,9 +1,16 @@
 package com.example.cafe.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "cook")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Cook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -11,37 +18,13 @@ public class Cook {
     private Long id;
 
     private String name;
-    private CategoryName specialization;
 
-    public Cook() {
-    }
+    @Enumerated(EnumType.STRING)
+    private CategoryName specialization;
 
     public Cook(String name, CategoryName specialization) {
         this.name = name;
         this.specialization = specialization;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public CategoryName getSpecialization() {
-        return specialization;
-    }
-
-    public void setSpecialization(CategoryName specialization) {
-        this.specialization = specialization;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

@@ -1,8 +1,16 @@
 package com.example.cafe.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@Table(name = "dish")
+@NoArgsConstructor
 public class Dish {
 
     @Id
@@ -11,15 +19,19 @@ public class Dish {
     private Long id;
     private String title;
     private int price;
-    private Long id_category;
 
-    public Dish() {
-    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "category_id")
+    private Category category;
 
-    public Dish(String title, int price, Long id_category) {
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "cook_id")
+    private Cook cook;
+
+    public Dish(String title, int price, Category category, Cook cook) {
         this.title = title;
         this.price = price;
-        this.id_category = id_category;
+        this.category = category;
+        this.cook = cook;
     }
-
 }
