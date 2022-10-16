@@ -3,7 +3,7 @@ package com.example.cafe.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cook")
+//@Table(name = "cook")
 public class Cook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -11,6 +11,8 @@ public class Cook {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private CategoryName specialization;
 
     public Cook() {
