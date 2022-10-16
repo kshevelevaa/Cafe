@@ -1,9 +1,8 @@
 package com.example.cafe.entity;
 
 import lombok.Getter;
-import lombok.NonNull;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
@@ -11,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "Order")
+@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,10 +23,7 @@ public class Order {
 
     private String address;
 
-    public Order() {
-    }
-
-    public Order(User user, Cook cook, String address) {
+    public Order(User user, String address) {
         this.user = user;
         this.address = address;
     }

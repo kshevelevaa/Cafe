@@ -1,6 +1,7 @@
 package com.example.cafe.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "dish")
+@NoArgsConstructor
 public class Dish {
 
     @Id
@@ -22,7 +24,14 @@ public class Dish {
     @JoinColumn(nullable = false, name = "category_id")
     private Category category;
 
-    public Dish() {
-    }
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false, name = "cook_id")
+    private Cook cook;
 
+    public Dish(String title, int price, Category category, Cook cook) {
+        this.title = title;
+        this.price = price;
+        this.category = category;
+        this.cook = cook;
+    }
 }

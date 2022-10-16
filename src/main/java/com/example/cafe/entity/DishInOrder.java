@@ -1,6 +1,7 @@
 package com.example.cafe.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "dish_in_order")
+@NoArgsConstructor
 public class DishInOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,13 +25,11 @@ public class DishInOrder {
     @JoinColumn(nullable = false, name = "order_id")
     private Order order;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "cook_id")
-    private Cook cook;
-
     private int dishCount;
 
-    public DishInOrder() {
+    public DishInOrder(Dish dish, Order order, int dishCount) {
+        this.dish = dish;
+        this.order = order;
+        this.dishCount = dishCount;
     }
-
 }
