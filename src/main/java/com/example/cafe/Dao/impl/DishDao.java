@@ -2,7 +2,6 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.Dish;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -36,11 +35,4 @@ public class DishDao extends AbstractDao<Dish> {
         return false;
     }
 
-//    @Override
-//    public Dish findById(Long id) {
-//        String request = "SELECT * FROM " + tableName + " WHERE id= ?";
-//        return jdbcTemplate.query(request, new Object[]{id}, new BeanPropertyRowMapper<>(Dish.class)).stream()
-//                .findAny()
-//                .orElse(null);
-//    }
 }

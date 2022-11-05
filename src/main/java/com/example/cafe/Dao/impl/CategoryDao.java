@@ -2,7 +2,6 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.Category;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,11 +30,4 @@ public class CategoryDao extends AbstractDao<Category> {
         return false;
     }
 
-//    @Override
-//    public Category findById(Long id) {
-//        String request = "SELECT * FROM category WHERE id= ?";
-//        return jdbcTemplate.query(request, new Object[]{id}, new BeanPropertyRowMapper<>(Category.class)).stream()
-//                .findAny()
-//                .orElse(null);
-//    }
 }

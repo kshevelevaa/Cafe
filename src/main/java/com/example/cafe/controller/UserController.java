@@ -1,6 +1,6 @@
 package com.example.cafe.controller;
 
-import com.example.cafe.service.UserService;
+import com.example.cafe.service.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private Test userService;
 
     @GetMapping("/save")
     public String save() {

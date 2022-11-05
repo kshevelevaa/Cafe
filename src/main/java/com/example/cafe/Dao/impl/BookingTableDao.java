@@ -2,11 +2,8 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.BookingTable;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public class BookingTableDao extends AbstractDao<BookingTable> {
@@ -36,16 +33,4 @@ public class BookingTableDao extends AbstractDao<BookingTable> {
                 id);
         return false;
     }
-
-//    @Override
-//    public BookingTable findById(Long id) {
-//        String request = "SELECT * FROM booking_table WHERE id= ?";
-//        return jdbcTemplate.query(request, new Object[]{id}, new BeanPropertyRowMapper<>(BookingTable.class)).stream()
-//                .findAny()
-//                .orElse(null);
-//    }
-
-
-
-
 }

@@ -1,18 +1,16 @@
 package com.example.cafe.service;
 
 import com.example.cafe.Dao.impl.*;
-import com.example.cafe.entity.impl.Order;
 import com.example.cafe.entity.impl.User;
+import com.example.cafe.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class UserService implements UserDetailsService {
+public class Test implements UserDetailsService {
 
     @Autowired
     UserDao userDao;
@@ -33,6 +31,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     OrderDao orderDao;
+
+    @Autowired
+    UserService userService;
 
     public void save() {
 //        User user = new User("anna", "1234567", "email", "number");
@@ -78,7 +79,7 @@ public class UserService implements UserDetailsService {
 //        bookingTableDao.update(bookingTable, id);
 //        BookingTable bt=bookingTableDao.findById(id);
 //        System.out.println(bt);
-        Long id = Long.valueOf(1);
+        Long id = Long.valueOf(4);
 //        Dish dish = new Dish("porridge", 150,id, id );
 //        Dish newDish = new Dish("porridge", 350,id, id);
 //        dishDao.save(dish);
@@ -101,10 +102,12 @@ public class UserService implements UserDetailsService {
 //        orderDao.update(order1, id);
 //        System.out.println(orderDao.findById(id));
 //        orderDao.deleteById(id);
-        List<User>  users = userDao.findAll();
-        System.out.println(dishDao.findById(id));
-        System.out.println(categoryDao.findById(id));
-        System.out.println( users);
+        System.out.println(userService.findAll());
+        System.out.println(userService.findById(id));
+
+        userService.updateEntity(new User("katya", "password", "email", "67866"), id);
+        System.out.println(userService.findById(id));
+        userService.deleteById(id);
     }
 
     @Override

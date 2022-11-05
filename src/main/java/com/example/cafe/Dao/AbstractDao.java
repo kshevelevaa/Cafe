@@ -2,14 +2,10 @@ package com.example.cafe.Dao;
 
 import com.example.cafe.Dao.impl.TableName;
 import com.example.cafe.entity.AbstractEntity;
-import com.example.cafe.entity.impl.BookingTable;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.lang.reflect.ParameterizedType;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractDao<T extends AbstractEntity> {
@@ -20,19 +16,22 @@ public abstract class AbstractDao<T extends AbstractEntity> {
         this.jdbcTemplate = jdbcTemplate;
 
     }
-    public  abstract boolean save(T entity);
-    public abstract boolean update (T entity, Long id);
+
+    public abstract boolean save(T entity);
+
+    public abstract boolean update(T entity, Long id);
 
 
-
-    public T findById(Long id){
+    public T findById(Long id) {
         String request = "SELECT * FROM " + tableName + " WHERE id= ?";
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
         Class<?> clazz = (Class<?>) pt.getActualTypeArguments()[0];
         return (T) jdbcTemplate.query(request, new Object[]{id}, new BeanPropertyRowMapper<>(clazz)).stream()
                 .findAny()
                 .orElse(null);
-    };
+    }
+
+    ;
 
     public List<T> findAll() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
@@ -43,12 +42,13 @@ public abstract class AbstractDao<T extends AbstractEntity> {
                 new BeanPropertyRowMapper(clazz));
     }
 
-    public  boolean deleteById (Long id){
-        this.getClass().getGenericSuperclass();
-        System.out.println("id = " + id);
-        System.out.println(tableName);
-        String request = "DELETE FROM "+ tableName + " WHERE id= ?";
+    public boolean deleteById(Long id) {
+        String request = "DELETE FROM " + tableName + " WHERE id= ?";
         jdbcTemplate.update(request, id);
         return true;
     }
+
+//    public boolean deleteAll(){
+//        return true;
+//    }
 }
