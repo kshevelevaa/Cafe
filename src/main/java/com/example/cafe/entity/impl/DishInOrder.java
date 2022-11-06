@@ -4,6 +4,7 @@ import com.example.cafe.entity.AbstractEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -25,5 +26,18 @@ public class DishInOrder extends AbstractEntity {
         this.dish_id = dish_id;
         this.order_id = order_id;
         this.dishCount = dishCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DishInOrder that = (DishInOrder) o;
+        return Objects.equals(id, that.id) && Objects.equals(dish_id, that.dish_id) && Objects.equals(order_id, that.order_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dish_id, order_id, dishCount);
     }
 }

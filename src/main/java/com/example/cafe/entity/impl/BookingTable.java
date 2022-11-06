@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -30,4 +31,16 @@ public class BookingTable extends AbstractEntity {
         this.peopleCount = peopleCount;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookingTable that = (BookingTable) o;
+        return  Objects.equals(id, that.id) && Objects.equals(user_id, that.user_id) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user_id, date, time, peopleCount);
+    }
 }

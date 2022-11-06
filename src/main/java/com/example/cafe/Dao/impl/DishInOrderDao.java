@@ -14,24 +14,22 @@ public class DishInOrderDao extends AbstractDao<DishInOrder> {
     }
 
     @Override
-    public boolean save(DishInOrder dishInOrder) {
+    public void save(DishInOrder dishInOrder) {
         jdbcTemplate.update("INSERT INTO dish_in_order (dish_id, order_id, dish_count) VALUES (?,?,?)",
                 dishInOrder.getDish_id(),
                 dishInOrder.getOrder_id(),
                 dishInOrder.getDishCount()
         );
-        return false;
     }
 
     @Override
-    public boolean update(DishInOrder dishInOrder, Long id) {
+    public void update(DishInOrder dishInOrder, Long id) {
         jdbcTemplate.update(
                 "UPDATE dish_in_order SET dish_id=?, order_id=?, dish_count=? WHERE id =? ",
                 dishInOrder.getDish_id(),
                 dishInOrder.getOrder_id(),
                 dishInOrder.getDishCount(),
                 id);
-        return false;
     }
 
 }

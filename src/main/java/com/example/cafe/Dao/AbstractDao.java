@@ -17,9 +17,9 @@ public abstract class AbstractDao<T extends AbstractEntity> {
 
     }
 
-    public abstract boolean save(T entity);
+    public abstract void save(T entity);
 
-    public abstract boolean update(T entity, Long id);
+    public abstract void update(T entity, Long id);
 
 
     public T findById(Long id) {
@@ -42,10 +42,9 @@ public abstract class AbstractDao<T extends AbstractEntity> {
                 new BeanPropertyRowMapper(clazz));
     }
 
-    public boolean deleteById(Long id) {
+    public void deleteById(Long id) {
         String request = "DELETE FROM " + tableName + " WHERE id= ?";
         jdbcTemplate.update(request, id);
-        return true;
     }
 
 //    public boolean deleteAll(){

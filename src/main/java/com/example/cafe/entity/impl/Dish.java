@@ -4,6 +4,7 @@ import com.example.cafe.entity.AbstractEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -28,10 +29,17 @@ public class Dish  extends AbstractEntity {
         this.category_id = category_id;
         this.cook_id = cook_id;
     }
-    //    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(nullable = false, name = "category_id")
-//    private Category category;
-//    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(nullable = false, name = "cook_id")
-//    private Cook cook;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return  Objects.equals(id, dish.id) && Objects.equals(title, dish.title) && Objects.equals(category_id, dish.category_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, price, category_id, cook_id);
+    }
 }

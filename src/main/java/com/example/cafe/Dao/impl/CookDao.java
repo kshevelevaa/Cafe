@@ -14,20 +14,18 @@ public class CookDao extends AbstractDao<Cook> {
     }
 
     @Override
-    public boolean save(Cook cook) {
+    public void save(Cook cook) {
         jdbcTemplate.update("INSERT INTO cook (name, specialization) VALUES (?,?)",
                 cook.getName(),
                 cook.getSpecialization().toString());
-        return false;
     }
 
     @Override
-    public boolean update(Cook newCook, Long id) {
+    public void update(Cook newCook, Long id) {
         jdbcTemplate.update(
                 "UPDATE cook SET name=?, specialization=? WHERE id =? ",
                 newCook.getName(),
                 newCook.getSpecialization().toString(),
                 id);
-        return false;
     }
 }

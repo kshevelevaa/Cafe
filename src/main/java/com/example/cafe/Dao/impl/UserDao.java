@@ -13,17 +13,16 @@ public class UserDao extends AbstractDao<User> {
     }
 
     @Override
-    public boolean save(User user1) {
+    public void save(User user1) {
         jdbcTemplate.update("INSERT INTO users (email, number, password, username)VALUES (?,?,?,?)",
                 user1.getEmail(),
                 user1.getNumber(),
                 user1.getPassword(),
                 user1.getUsername());
-        return true;
     }
 
     @Override
-    public boolean update(User newUser, Long id) {
+    public void update(User newUser, Long id) {
         jdbcTemplate.update(
                 "UPDATE users SET email=?, number=?, password=?, username=? WHERE id =? ",
                 newUser.getEmail(),
@@ -31,6 +30,5 @@ public class UserDao extends AbstractDao<User> {
                 newUser.getPassword(),
                 newUser.getUsername(),
                 id);
-        return false;
     }
 }

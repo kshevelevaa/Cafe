@@ -13,22 +13,20 @@ public class OrderDao extends AbstractDao<Order> {
     }
 
     @Override
-    public boolean save(Order order) {
+    public void save(Order order) {
         jdbcTemplate.update("INSERT INTO orders (user_id, address) VALUES (?,?)",
                 order.getUser_id(),
                 order.getAddress()
         );
-        return false;
     }
 
     @Override
-    public boolean update(Order order, Long id) {
+    public void update(Order order, Long id) {
         jdbcTemplate.update(
                 "UPDATE orders SET user_id=?, address=? WHERE id =? ",
                 order.getUser_id(),
                 order.getAddress(),
                 id);
-        return false;
     }
 
 }

@@ -14,17 +14,16 @@ public class DishDao extends AbstractDao<Dish> {
     }
 
     @Override
-    public boolean save(Dish dish) {
+    public void save(Dish dish) {
         jdbcTemplate.update("INSERT INTO dish (title, price, category_id, cook_id) VALUES (?,?,?,?)",
                 dish.getTitle(),
                 dish.getPrice(),
                 dish.getCategory_id(),
                 dish.getCook_id());
-        return false;
     }
 
     @Override
-    public boolean update(Dish dish, Long id) {
+    public void update(Dish dish, Long id) {
         jdbcTemplate.update(
                 "UPDATE dish SET title=?, price=?, category_id=?, cook_id=? WHERE id =? ",
                 dish.getTitle(),
@@ -32,7 +31,6 @@ public class DishDao extends AbstractDao<Dish> {
                 dish.getCategory_id(),
                 dish.getCook_id(),
                 id);
-        return false;
     }
 
 }

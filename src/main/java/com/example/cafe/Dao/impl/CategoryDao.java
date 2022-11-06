@@ -13,21 +13,19 @@ public class CategoryDao extends AbstractDao<Category> {
     }
 
     @Override
-    public boolean save(Category category) {
+    public void save(Category category) {
         jdbcTemplate.update("INSERT INTO category (name, description)VALUES (?,?)",
                 category.getName().name(),
                 category.getDescription());
-        return false;
     }
 
     @Override
-    public boolean update(Category newCategory, Long id) {
+    public void update(Category newCategory, Long id) {
         jdbcTemplate.update(
                 "UPDATE category SET name=?, description=? WHERE id =? ",
                 newCategory.getName().toString(),
                 newCategory.getDescription(),
                 id);
-        return false;
     }
 
 }

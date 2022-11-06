@@ -4,6 +4,7 @@ import com.example.cafe.entity.AbstractEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -24,5 +25,18 @@ public class Cook  extends AbstractEntity {
     public Cook(String name, CategoryName specialization) {
         this.name = name;
         this.specialization = specialization;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cook cook = (Cook) o;
+        return Objects.equals(id, cook.id) && Objects.equals(name, cook.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, specialization);
     }
 }

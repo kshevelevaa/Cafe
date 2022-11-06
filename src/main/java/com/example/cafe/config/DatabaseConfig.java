@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-public class MvcConfig implements WebMvcConfigurer {
+public class DatabaseConfig implements WebMvcConfigurer {
 
 //    public void addViewControllers(ViewControllerRegistry registry) {
 //        registry.addViewController("/login").setViewName("login");

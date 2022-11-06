@@ -5,6 +5,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Setter
@@ -24,5 +25,18 @@ public class Category  extends AbstractEntity {
     public Category(CategoryName name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(id, category.id) && name == category.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description);
     }
 }
