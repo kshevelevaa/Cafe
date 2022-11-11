@@ -2,6 +2,8 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.Dish;
+import com.example.cafe.entity.impl.Order;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +33,18 @@ public class DishDao extends AbstractDao<Dish> {
                 dish.getCategory_id(),
                 dish.getCook_id(),
                 id);
+    }
+
+    public void deleteByCookId(Long cook_id){
+        String request = "DELETE FROM " + tableName + " WHERE cook_id= ?";
+        jdbcTemplate.update(request, cook_id);
+    }
+
+    public Order findByCookId(Long cook_id){
+        String request = "SELECT * FROM " + tableName + " WHERE cook_id= ?";
+        return jdbcTemplate.query(request, new Object[]{cook_id}, new BeanPropertyRowMapper<>(Order.class)).stream()
+                .findAny()
+                .orElse(null);
     }
 
 }

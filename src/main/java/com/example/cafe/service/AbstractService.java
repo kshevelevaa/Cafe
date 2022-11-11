@@ -15,23 +15,23 @@ public abstract class AbstractService<T extends AbstractEntity, D extends Abstra
     public AbstractService() {
     }
 
-    public boolean saveEntity(T entity) {
+    public T saveEntity(T entity) {
         List<T> entities = currentDao.findAll();
         for (T existEntity : entities) {
             if (existEntity.equals(entity)) {
-                return false;
+                return null;
             }
         }
         currentDao.save(entity);
-        return true;
+        return entity;
     }
 
-    public boolean updateEntity(T entity, Long id) {
+    public T updateEntity(T entity, Long id) {
         if (currentDao.findById(id) == null) {
-            return false;
+            return null;
         }
         currentDao.update(entity, id);
-        return true;
+        return findById(id);
     }
 
     public boolean deleteById(Long id) {
@@ -49,6 +49,7 @@ public abstract class AbstractService<T extends AbstractEntity, D extends Abstra
     public List<T> findAll() {
         return (List<T>) currentDao.findAll();
     }
+
 
 //    public void deleteAll() {
 //    }

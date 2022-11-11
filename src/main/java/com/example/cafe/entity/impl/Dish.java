@@ -42,4 +42,8 @@ public class Dish  extends AbstractEntity {
     public int hashCode() {
         return Objects.hash(id, title, price, category_id, cook_id);
     }
+
+    public String getPhotoAddress(){
+        return "assets/images/about-images/img.png";
+    }
 }

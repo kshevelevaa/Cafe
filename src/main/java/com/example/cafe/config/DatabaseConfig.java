@@ -3,6 +3,7 @@ package com.example.cafe.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -38,4 +39,9 @@ public class DatabaseConfig implements WebMvcConfigurer {
         return new JdbcTemplate(dataSource());
     }
 
+
+    @Bean
+    public SimpleJdbcCall jdbcCall(){
+        return new SimpleJdbcCall(dataSource());
+    }
 }

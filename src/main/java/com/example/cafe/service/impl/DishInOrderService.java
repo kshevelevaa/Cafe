@@ -15,4 +15,20 @@ public class DishInOrderService extends AbstractService<DishInOrder, DishInOrder
         super(dishInOrderDao);
         this.dishInOrderDao = dishInOrderDao;
     }
+
+    public boolean deleteByOrderId(Long order_id) {
+        if (currentDao.findByOrderId(order_id) == null) {
+            return false;
+        }
+        currentDao.deleteByOrderId(order_id);
+        return true;
+    }
+
+    public boolean deleteByDishId(Long dish_id) {
+        if (currentDao.findByDishId(dish_id) == null) {
+            return false;
+        }
+        currentDao.deleteByDishId(dish_id);
+        return true;
+    }
 }

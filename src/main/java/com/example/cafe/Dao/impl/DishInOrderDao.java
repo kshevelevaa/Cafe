@@ -2,6 +2,8 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.DishInOrder;
+import com.example.cafe.entity.impl.Order;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +32,30 @@ public class DishInOrderDao extends AbstractDao<DishInOrder> {
                 dishInOrder.getOrder_id(),
                 dishInOrder.getDishCount(),
                 id);
+    }
+
+    public void deleteByOrderId(Long user_id){
+        String request = "DELETE FROM " + tableName + " WHERE order_id= ?";
+        jdbcTemplate.update(request, user_id);
+    }
+
+    public Order findByOrderId(Long user_id){
+        String request = "SELECT * FROM " + tableName + " WHERE order_id= ?";
+        return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(Order.class)).stream()
+                .findAny()
+                .orElse(null);
+    }
+
+    public void deleteByDishId(Long user_id){
+        String request = "DELETE FROM " + tableName + " WHERE dish_id= ?";
+        jdbcTemplate.update(request, user_id);
+    }
+
+    public Order findByDishId(Long user_id){
+        String request = "SELECT * FROM " + tableName + " WHERE dish_id= ?";
+        return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(Order.class)).stream()
+                .findAny()
+                .orElse(null);
     }
 
 }

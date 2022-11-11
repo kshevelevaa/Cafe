@@ -4,6 +4,7 @@ import com.example.cafe.Dao.impl.TableName;
 import com.example.cafe.entity.AbstractEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

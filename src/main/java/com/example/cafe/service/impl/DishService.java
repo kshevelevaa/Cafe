@@ -15,4 +15,12 @@ public class DishService extends AbstractService<Dish, DishDao> {
         super(dishDao);
         this.dishDao = dishDao;
     }
+
+    public boolean deleteByCookId(Long cook_id) {
+        if (currentDao.findByCookId(cook_id) == null) {
+            return false;
+        }
+        currentDao.deleteByCookId(cook_id);
+        return true;
+    }
 }
