@@ -66,12 +66,12 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-4">
 						<div class="search-box">
-							<form class="search-form">
+							<div class="search-form">
 								<input type="search" placeholder="Search Your Queries">
-								<button type="submit">
+								<button >
 									<i class="fa fa-search"></i>
 								</button>
-							</form><!-- Search form -->
+							</div><!-- Search form -->
 						</div><!-- Search area -->
 					</div>
 					<div class="col-md-4 col-sm-4">
@@ -246,23 +246,21 @@
 					</div><!--button group-->
 					<div class="catagorys">
 						<div class="catagory-item">
-							<select>
+							<select class="selectCategory">
 								<option>Select Catagory</option>
-								<option>Soups & Salads</option>
-								<option>Desserts</option>
-								<option>Breads & Rolls</option>
-								<option>Beverages</option>
-								<option>Cookies & Candy</option>
-								<option>Vegetables</option>
+								<option>breakfast</option>
+								<option>lunch</option>
+								<option>dinner</option>
+								<option>drinks</option>
 							</select>
 						</div>
 						<div class="catagory-item">
-							<select>
-								<option>Sort by</option>
-								<option>Name</option>
-								<option>size</option>
-								<option>Dish</option>
-								<option>Price</option>
+							<select class="selectSort">
+								<option class="sortBy">Sort by</option>
+								<option class="sortByTitle">title</option>
+<!--								<option>size</option>-->
+<!--								<option>Dish</option>-->
+								<option class="sortByPrice">price</option>
 							</select>
 						</div>
 					</div><!--Catagorys-->

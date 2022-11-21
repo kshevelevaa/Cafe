@@ -20,6 +20,7 @@ public class Order extends AbstractEntity {
     private Long id;
     private Long user_id;
     private String address;
+    private boolean isSend;
 
     public Order(Long user_id, String address) {
         this.user_id = user_id;

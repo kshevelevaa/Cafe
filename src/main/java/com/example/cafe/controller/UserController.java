@@ -8,22 +8,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-//    @PostMapping("/save")
-//    public String save() {
-//        User user = new User  ( "nikita", "password", "email", "111222" );
-//        userService.saveEntity(user);
-//        return "cart";
-//    }
-//
-//    @GetMapping("/cart")
-//    public String cart(){
-//        return "cart";
-//    }
-//
+    @GetMapping("")
+    public List<User> getUsers(){
+        return userService.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable(value = "id") Long id){
+        userService.deleteById(id);
+    }
+
 }

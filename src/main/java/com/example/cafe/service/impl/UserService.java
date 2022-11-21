@@ -61,10 +61,12 @@ public class UserService extends AbstractService<User, UserDao> implements UserD
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
+
         return user;
     }
     public User getUserAuth() {
 
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
+
 }

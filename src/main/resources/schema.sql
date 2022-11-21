@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS orders
     id      BIGSERIAL NOT NULL,
     user_id BIGINT,
     address VARCHAR(255),
+    is_send BOOLEAN,
     CONSTRAINT pk_orders PRIMARY KEY (id)
 );
 

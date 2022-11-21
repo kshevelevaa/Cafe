@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Product Details</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
 	<link rel="stylesheet" href="assets/css/font-awesome.css" />
 	<link rel="stylesheet" href="assets/flaticon/flaticon.css" />
 	<link rel="stylesheet" href="assets/css/lightbox.css" />
@@ -227,361 +230,474 @@
 		</div>
 	</section><!--/Banner Section end/-->
 
-	<!-- product-single -->
-	<section class="product-single">
+	<section class="shopping-cart">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
-					<div id="main-content">
-						<div class="product-preview">
-							<div class="row">
-								<div class="col-md-6 col-sm-6">
-									<div class="product-preview-img">
-										<img src="assets/images/food-menu/product-img.jpg" alt="">
-									</div><!-- product-preview-img -->
+				<div class="table-responsive cart-table">
+					<table class="shop-cart">
+						<thead>
+						<tr class="text-center">
+							<th class="cart-single-item">User Name</th>
+							<th class="cart-price">Number</th>
+							<th class="cart-quantity">Email</th>
+							<th class="cart-total">Delete</th>
+						</tr>
+						</thead>
+						<tbody class="tableBody">
+						<tr>
+							<td class="cart-single-item">
+								<div class="item-img">
+									<a href=""><img src="assets/images/food-menu/cart1.jpg" alt=""></a>
 								</div>
-								<div class="col-md-6 col-sm-6">
-									<div class="product-detail">
-										<div class="dotted-title">
-											<div class="dotted-name">
-												<a href="#">Product Title Here</a>
-											</div>
-											<div class="dotted-dot"></div>
-											<div class="dotted-price">
-												<span>$30.00</span>
-											</div>
-										</div><!-- dotted-title -->
-										<div class="rating-star">
-											<i class="fa fa-star-o"></i>
-											<i class="fa fa-star-o"></i>
-											<i class="fa fa-star-o"></i>
-											<i class="fa fa-star-o"></i>
-											<i class="fa fa-star-o"></i>
-											<span>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-half-o"></i>
-											</span>
-										</div><!-- rating star -->
-										<p>
-											Rorem psum dolor sit amet, consectetuer anadipiscing ani elit sed diam nonummy nibh euismod tincidunt are and thlaoreet dolore magna aliquam erat are avolutpat. Claritas etiam qui sequitur mutationem consuetudium the awesome prodect lectorum.
-										</p>
-										<div class="product-counter-area">
-											<div class="product-quantity">
-												<input type="submit" name="remove" value="-">
-												<input type="text" name="quantity" value="4">
-												<input type="submit" name="add" value="+">
-											</div>
-											<input class="input-box" type="text" name="Name" placeholder="Enter Discount Code">
-										</div><!-- product-counter-area -->
-										<div class="add-cart">
-											<button type="submit" class="button">add to cart</button>
-										</div>
-									</div><!-- product-detail -->
+								<div class="item-name">
+									<a href="#">Product Title Here</a>
 								</div>
-							</div>
-						</div><!-- product-preview -->
-						<div class="product-riview-des">
-							<!-- Nav tabs -->
-							<ul role="tablist" class="nav nav-tabs">
-								<li role="presentation" class="active"><a href="#descreption" aria-controls="descreption" role="tab" data-toggle="tab">Descreption</a></li>
-								<li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Product review</a></li>
-							</ul>
-							<!-- Tab panes -->
-							<div class="tab-content">
-							   	<div role="tabpanel" class="tab-pane active" id="descreption">
-							   		<p>Seamlessly simplify error-free initiatives without highly aefficient resources. Completely formulate turnkey infomediaries arerather than stand-alone strategic theme areas. Enthusiastically an target the awesome world class deliverables and fictionless outsourcing. Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking. Reamlessly simplify error-free initiatives without highly aefficient resources. Completely formulate turnkey infomediaries arerather than stand-alone strategic theme areas. Enthusiastically an target the awesome world class deliverables and fictionless outsourcing. Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking.the awesome and Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking.</p>
-							   	</div>
-							   	<div role="tabpanel" class="tab-pane" id="reviews">
-							   		<div class="product-review">
-							   			<h2>03 Customer Reviews</h2>
-							   			<ul class="product-review-list">
-							   				<li class="product-review-item">
-							   					<div class="profile-image">
-													<img src="assets/images/blog-images/user1.jpg" alt="">
-												</div>
-												<div class="product-review-content">
-													<div class="product-review-head">
-														<h3>Britney Doe</h3>
-														<span>May 25, 2016</span>
-														<div class="rating-star">
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<span>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-o"></i>
-															</span>
-														</div><!-- rating star -->
-													</div><!-- product-review-head -->
-													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>
-												</div><!-- product-review-content -->
-							   				</li><!-- product-review-item -->
-							   				<li class="product-review-item">
-							   					<div class="profile-image">
-													<img src="assets/images/blog-images/user2.jpg" alt="">
-												</div>
-												<div class="product-review-content">
-													<div class="product-review-head">
-														<h3>Britney Doe</h3>
-														<span>May 25, 2016</span>
-														<div class="rating-star">
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<span>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-o"></i>
-															</span>
-														</div><!-- rating star -->
-													</div><!-- product-review-head -->
-													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>
-												</div><!-- product-review-content -->
-							   				</li><!-- product-review-item -->
-							   				<li class="product-review-item">
-							   					<div class="profile-image">
-													<img src="assets/images/blog-images/user3.jpg" alt="">
-												</div>
-												<div class="product-review-content">
-													<div class="product-review-head">
-														<h3>Britney Doe</h3>
-														<span>May 25, 2016</span>
-														<div class="rating-star">
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<i class="fa fa-star-o"></i>
-															<span>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-o"></i>
-															</span>
-														</div><!-- rating star -->
-													</div><!-- product-review-head -->
-													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>
-												</div><!-- product-review-content -->
-							   				</li><!-- product-review-item -->
-							   			</ul><!-- product-review-list -->
-							   		</div><!-- product-review -->
-							   		<div class="add-review">
-							   			<h2>Add a Review</h2>
-							   			<form>
-							   				<div class="row">
-							   					<div class="col-md-6">
-							   						<input class="input-box" type="text" name="Name" placeholder="Your Name*">
-							   					</div>
-							   					<div class="col-md-6">
-							   						<input class="input-box" type="text" name="mail" placeholder="Your Email*">
-							   					</div>
-							   				</div>
-							   				<textarea rows="5" placeholder="Messages" aria-required="true" autocomplete="off"></textarea>
-							   				<div class="row">
-							   					<div class="col-md-6">
-							   						<div class="add-rating">
-							   							<div class="rating-star">
-							   								<i class="fa fa-star"></i>
-							   								<i class="fa fa-star"></i>
-							   								<i class="fa fa-star"></i>
-							   								<i class="fa fa-star"></i>
-							   								<i class="fa fa-star"></i>
-							   							</div><!-- rating star -->
-							   						</div>
-							   					</div>
-							   					<div class="col-md-6">
-							   						<input type="submit" class="button" value="add reviw">
-							   					</div>
-							   				</div>
-							   			</form>
-							   		</div><!-- add-review -->
-							   	</div><!-- tab-pane -->
+							</td><!-- cart-single-item -->
+							<td class="cart-price">
+								<span>$20.00</span>
+							</td><!-- cart-price -->
+							<td class="cart-quantity">
+								<div class="product-quantity">
+									<input type="submit" name="submit" value="-">
+									<input type="text" name="text" value="2">
+									<input type="submit" name="submit" value="+">
+								</div>
+							</td><!-- cart-quantity -->
+							<td class="cart-total">
+								<span>$40.00</span>
+							</td><!-- cart-total -->
+							<td class="cart-item-remove">
+								<a href="#">
+									<i class="fa fa-times"></i>
+								</a>
+							</td><!-- cart-item-remove -->
+						</tr>
+					</table><!--  shop cart -->
+				</div>
+				<div class="coupon-checkout">
+					<div class="coupon">
+						<input class="input-box" type="text" name="text" placeholder="Coupon Code...">
+						<input class="button" type="submit" name="submit" value="apply coupon">
+					</div><!-- coupon -->
+					<div class="checkout">
+						<button type="submit" class="button">update cart</button>
+						<button type="submit" class="button">proceed checkout</button>
+					</div><!-- checkout -->
+				</div><!-- coupon-checkout -->
+				<div class="shipping-totalprice">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="calculate-shipping">
+								<h3>Calculate Shipping</h3>
+								<div class="catagory-item">
+									<select>
+										<option>United Kingdom(UK)</option>
+										<option>Bangladesh</option>
+										<option>United State(USA)</option>
+										<option>Gana</option>
+										<option>Honolulu</option>
+										<option>Honduras</option>
+									</select>
+								</div><!-- catagory-item -->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="catagory-item">
+											<select>
+												<option>State/Country</option>
+												<option>Dhaka</option>
+												<option>Chittagong</option>
+												<option>Khulna</option>
+												<option>Sylhet</option>
+												<option>Rajshahi</option>
+											</select>
+										</div><!-- catagory-item -->
+									</div>
+									<div class="col-md-6">
+										<input class="input-box" type="text" name="postcode" placeholder="postcode/ZIP">
+									</div>
+								</div>
+								<button type="submit" class="button">update total</button>
+							</div><!-- calculate-shipping -->
+						</div>
+						<div class="col-md-6">
+							<div class="total-price">
+								<h3>Cart Total</h3>
+								<ul>
+									<li>
+										<span class="pull-left">Cart Subtotal</span>
+										<p class="pull-right">$ 1214.98</p>
+									</li>
+									<li>
+										<span class="pull-left">Shipping and Handling</span>
+										<p class="pull-right">Free Shipping</p>
+									</li>
+									<li class="order-total">
+										<span class="pull-left">Order Total</span>
+										<p class="pull-right">$ 1214.98</p>
+									</li>
+								</ul>
 							</div>
 						</div>
-					</div><!-- main-content -->
-				</div>
-				<div  class="col-md-4">
-					<div id="sidebar">
-						<div class="widget">
-							<h2 class="widget-title">Recipe Categories</h2>
-							<div class="widget-content">
-								<ul class="w-catagory">
-									<li>
-										<a href="#">Soups & Salads</a><span>10</span>
-									</li>
-									<li>
-										<a href="#">Desserts</a><span>12</span>
-									</li>
-									<li>
-										<a href="#">Breads & Rolls</a><span>06</span>
-									</li>
-									<li>
-										<a href="#">Beverages</a><span>07</span>
-									</li>
-									<li>
-										<a href="#">Cookies & Candy</a><span>15</span>
-									</li>
-									<li>
-										<a href="#">Main Dishes</a><span>08</span>
-									</li>
-									<li>
-										<a href="#">Vegetables</a><span>09</span>
-									</li>
-									<li>
-										<a href="#">Side Dishes</a><span>05</span>
-									</li>
-								</ul><!-- w-catagory -->
-							</div><!-- widget-content -->
-						</div><!-- widget -->
-						<div class="widget">
-							<h2 class="widget-title">Random Product</h2>
-							<div class="widget-content">
-								<ul class="widget-food-list">
-									<li class="food-item">
-										<div class="food-item-img">
-											<a href="#"><img src="assets/images/food-menu/w-food1.jpg" alt=""></a>
-										</div>
-										<div class="food-item-details">
-											<div class="dotted-title">
-												<div class="dotted-name">
-													<a href="#">Product Name</a>
-												</div>
-												<div class="dotted-dot"></div>
-												<div class="dotted-price">
-													<span>$30.00</span>
-												</div>
-											</div><!-- dotted title -->
-											<p>awesome theme with holistic</p>
-											<div class="rating-star">
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<span>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half-o"></i>
-												</span>
-											</div><!-- rating star -->
-										</div><!-- food item details -->
-									</li><!-- food-item -->
-									<li class="food-item">
-										<div class="food-item-img">
-											<a href="#"><img src="assets/images/food-menu/w-food2.jpg" alt=""></a>
-										</div>
-										<div class="food-item-details">
-											<div class="dotted-title">
-												<div class="dotted-name">
-													<a href="#">Product Name</a>
-												</div>
-												<div class="dotted-dot"></div>
-												<div class="dotted-price">
-													<span>$30.00</span>
-												</div>
-											</div><!-- dotted title -->
-											<p>awesome theme with holistic</p>
-											<div class="rating-star">
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<span>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half-o"></i>
-												</span>
-											</div><!-- rating star -->
-										</div><!-- food item details -->
-									</li><!-- food-item -->
-									<li class="food-item">
-										<div class="food-item-img">
-											<a href="#"><img src="assets/images/food-menu/w-food3.jpg" alt=""></a>
-										</div>
-										<div class="food-item-details">
-											<div class="dotted-title">
-												<div class="dotted-name">
-													<a href="#">Product Name</a>
-												</div>
-												<div class="dotted-dot"></div>
-												<div class="dotted-price">
-													<span>$30.00</span>
-												</div>
-											</div><!-- dotted title -->
-											<p>awesome theme with holistic</p>
-											<div class="rating-star">
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<span>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half-o"></i>
-												</span>
-											</div><!-- rating star -->
-										</div><!-- food item details -->
-									</li><!-- food-item -->
-									<li class="food-item">
-										<div class="food-item-img">
-											<a href="#"><img src="assets/images/food-menu/w-food4.jpg" alt=""></a>
-										</div>
-										<div class="food-item-details">
-											<div class="dotted-title">
-												<div class="dotted-name">
-													<a href="#">Product Name</a>
-												</div>
-												<div class="dotted-dot"></div>
-												<div class="dotted-price">
-													<span>$30.00</span>
-												</div>
-											</div><!-- dotted title -->
-											<p>awesome theme with holistic</p>
-											<div class="rating-star">
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<span>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-half-o"></i>
-												</span>
-											</div><!-- rating star -->
-										</div><!-- food item details -->
-									</li><!-- food-item -->
-								</ul>
-							</div><!-- widget-content -->
-						</div><!-- widget -->
-					</div><!-- sidebar -->
-				</div>
+					</div>
+				</div><!-- shipping-totalprice -->
 			</div>
 		</div><!-- container -->
-	</section><!-- product-single end-->
+	</section><!-- shopping-cart end-->
+	<!-- product-single -->
+<!--	<section class="product-single">-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="col-md-8">-->
+<!--					<div id="main-content">-->
+<!--						<div class="product-preview">-->
+<!--							<div class="row">-->
+<!--								<div class="col-md-6 col-sm-6">-->
+<!--									<div class="product-preview-img">-->
+<!--										<img src="assets/images/food-menu/product-img.jpg" alt="">-->
+<!--									</div>&lt;!&ndash; product-preview-img &ndash;&gt;-->
+<!--								</div>-->
+<!--								<div class="col-md-6 col-sm-6">-->
+<!--									<div class="product-detail">-->
+<!--										<div class="dotted-title">-->
+<!--											<div class="dotted-name">-->
+<!--												<a href="#">Product Title Here</a>-->
+<!--											</div>-->
+<!--											<div class="dotted-dot"></div>-->
+<!--											<div class="dotted-price">-->
+<!--												<span>$30.00</span>-->
+<!--											</div>-->
+<!--										</div>&lt;!&ndash; dotted-title &ndash;&gt;-->
+<!--										<div class="rating-star">-->
+<!--											<i class="fa fa-star-o"></i>-->
+<!--											<i class="fa fa-star-o"></i>-->
+<!--											<i class="fa fa-star-o"></i>-->
+<!--											<i class="fa fa-star-o"></i>-->
+<!--											<i class="fa fa-star-o"></i>-->
+<!--											<span>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star-half-o"></i>-->
+<!--											</span>-->
+<!--										</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--										<p>-->
+<!--											Rorem psum dolor sit amet, consectetuer anadipiscing ani elit sed diam nonummy nibh euismod tincidunt are and thlaoreet dolore magna aliquam erat are avolutpat. Claritas etiam qui sequitur mutationem consuetudium the awesome prodect lectorum.-->
+<!--										</p>-->
+<!--										<div class="product-counter-area">-->
+<!--											<div class="product-quantity">-->
+<!--												<input type="submit" name="remove" value="-">-->
+<!--												<input type="text" name="quantity" value="4">-->
+<!--												<input type="submit" name="add" value="+">-->
+<!--											</div>-->
+<!--											<input class="input-box" type="text" name="Name" placeholder="Enter Discount Code">-->
+<!--										</div>&lt;!&ndash; product-counter-area &ndash;&gt;-->
+<!--										<div class="add-cart">-->
+<!--											<button type="submit" class="button">add to cart</button>-->
+<!--										</div>-->
+<!--									</div>&lt;!&ndash; product-detail &ndash;&gt;-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>&lt;!&ndash; product-preview &ndash;&gt;-->
+<!--						<div class="product-riview-des">-->
+<!--							&lt;!&ndash; Nav tabs &ndash;&gt;-->
+<!--							<ul role="tablist" class="nav nav-tabs">-->
+<!--								<li role="presentation" class="active"><a href="#descreption" aria-controls="descreption" role="tab" data-toggle="tab">Descreption</a></li>-->
+<!--								<li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Product review</a></li>-->
+<!--							</ul>-->
+<!--							&lt;!&ndash; Tab panes &ndash;&gt;-->
+<!--							<div class="tab-content">-->
+<!--							   	<div role="tabpanel" class="tab-pane active" id="descreption">-->
+<!--							   		<p>Seamlessly simplify error-free initiatives without highly aefficient resources. Completely formulate turnkey infomediaries arerather than stand-alone strategic theme areas. Enthusiastically an target the awesome world class deliverables and fictionless outsourcing. Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking. Reamlessly simplify error-free initiatives without highly aefficient resources. Completely formulate turnkey infomediaries arerather than stand-alone strategic theme areas. Enthusiastically an target the awesome world class deliverables and fictionless outsourcing. Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking.the awesome and Holisticly orchestrate 24/365 alignments whereas are the aflexible web-readiness. Continually morph quality core the competencies through maintainable "outside the box" thinking.</p>-->
+<!--							   	</div>-->
+<!--							   	<div role="tabpanel" class="tab-pane" id="reviews">-->
+<!--							   		<div class="product-review">-->
+<!--							   			<h2>03 Customer Reviews</h2>-->
+<!--							   			<ul class="product-review-list">-->
+<!--							   				<li class="product-review-item">-->
+<!--							   					<div class="profile-image">-->
+<!--													<img src="assets/images/blog-images/user1.jpg" alt="">-->
+<!--												</div>-->
+<!--												<div class="product-review-content">-->
+<!--													<div class="product-review-head">-->
+<!--														<h3>Britney Doe</h3>-->
+<!--														<span>May 25, 2016</span>-->
+<!--														<div class="rating-star">-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<span>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star-half-o"></i>-->
+<!--															</span>-->
+<!--														</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--													</div>&lt;!&ndash; product-review-head &ndash;&gt;-->
+<!--													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>-->
+<!--												</div>&lt;!&ndash; product-review-content &ndash;&gt;-->
+<!--							   				</li>&lt;!&ndash; product-review-item &ndash;&gt;-->
+<!--							   				<li class="product-review-item">-->
+<!--							   					<div class="profile-image">-->
+<!--													<img src="assets/images/blog-images/user2.jpg" alt="">-->
+<!--												</div>-->
+<!--												<div class="product-review-content">-->
+<!--													<div class="product-review-head">-->
+<!--														<h3>Britney Doe</h3>-->
+<!--														<span>May 25, 2016</span>-->
+<!--														<div class="rating-star">-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<span>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star-half-o"></i>-->
+<!--															</span>-->
+<!--														</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--													</div>&lt;!&ndash; product-review-head &ndash;&gt;-->
+<!--													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>-->
+<!--												</div>&lt;!&ndash; product-review-content &ndash;&gt;-->
+<!--							   				</li>&lt;!&ndash; product-review-item &ndash;&gt;-->
+<!--							   				<li class="product-review-item">-->
+<!--							   					<div class="profile-image">-->
+<!--													<img src="assets/images/blog-images/user3.jpg" alt="">-->
+<!--												</div>-->
+<!--												<div class="product-review-content">-->
+<!--													<div class="product-review-head">-->
+<!--														<h3>Britney Doe</h3>-->
+<!--														<span>May 25, 2016</span>-->
+<!--														<div class="rating-star">-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<i class="fa fa-star-o"></i>-->
+<!--															<span>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star"></i>-->
+<!--																<i class="fa fa-star-half-o"></i>-->
+<!--															</span>-->
+<!--														</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--													</div>&lt;!&ndash; product-review-head &ndash;&gt;-->
+<!--													<p>Constetuer adipiscing dianonummy nibh euismod and aliquam the awesome theme erat volutpat. </p>-->
+<!--												</div>&lt;!&ndash; product-review-content &ndash;&gt;-->
+<!--							   				</li>&lt;!&ndash; product-review-item &ndash;&gt;-->
+<!--							   			</ul>&lt;!&ndash; product-review-list &ndash;&gt;-->
+<!--							   		</div>&lt;!&ndash; product-review &ndash;&gt;-->
+<!--							   		<div class="add-review">-->
+<!--							   			<h2>Add a Review</h2>-->
+<!--							   			<form>-->
+<!--							   				<div class="row">-->
+<!--							   					<div class="col-md-6">-->
+<!--							   						<input class="input-box" type="text" name="Name" placeholder="Your Name*">-->
+<!--							   					</div>-->
+<!--							   					<div class="col-md-6">-->
+<!--							   						<input class="input-box" type="text" name="mail" placeholder="Your Email*">-->
+<!--							   					</div>-->
+<!--							   				</div>-->
+<!--							   				<textarea rows="5" placeholder="Messages" aria-required="true" autocomplete="off"></textarea>-->
+<!--							   				<div class="row">-->
+<!--							   					<div class="col-md-6">-->
+<!--							   						<div class="add-rating">-->
+<!--							   							<div class="rating-star">-->
+<!--							   								<i class="fa fa-star"></i>-->
+<!--							   								<i class="fa fa-star"></i>-->
+<!--							   								<i class="fa fa-star"></i>-->
+<!--							   								<i class="fa fa-star"></i>-->
+<!--							   								<i class="fa fa-star"></i>-->
+<!--							   							</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--							   						</div>-->
+<!--							   					</div>-->
+<!--							   					<div class="col-md-6">-->
+<!--							   						<input type="submit" class="button" value="add reviw">-->
+<!--							   					</div>-->
+<!--							   				</div>-->
+<!--							   			</form>-->
+<!--							   		</div>&lt;!&ndash; add-review &ndash;&gt;-->
+<!--							   	</div>&lt;!&ndash; tab-pane &ndash;&gt;-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>&lt;!&ndash; main-content &ndash;&gt;-->
+<!--				</div>-->
+<!--				<div  class="col-md-4">-->
+<!--					<div id="sidebar">-->
+<!--						<div class="widget">-->
+<!--							<h2 class="widget-title">Recipe Categories</h2>-->
+<!--							<div class="widget-content">-->
+<!--								<ul class="w-catagory">-->
+<!--									<li>-->
+<!--										<a href="#">Soups & Salads</a><span>10</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Desserts</a><span>12</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Breads & Rolls</a><span>06</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Beverages</a><span>07</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Cookies & Candy</a><span>15</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Main Dishes</a><span>08</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Vegetables</a><span>09</span>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#">Side Dishes</a><span>05</span>-->
+<!--									</li>-->
+<!--								</ul>&lt;!&ndash; w-catagory &ndash;&gt;-->
+<!--							</div>&lt;!&ndash; widget-content &ndash;&gt;-->
+<!--						</div>&lt;!&ndash; widget &ndash;&gt;-->
+<!--						<div class="widget">-->
+<!--							<h2 class="widget-title">Random Product</h2>-->
+<!--							<div class="widget-content">-->
+<!--								<ul class="widget-food-list">-->
+<!--									<li class="food-item">-->
+<!--										<div class="food-item-img">-->
+<!--											<a href="#"><img src="assets/images/food-menu/w-food1.jpg" alt=""></a>-->
+<!--										</div>-->
+<!--										<div class="food-item-details">-->
+<!--											<div class="dotted-title">-->
+<!--												<div class="dotted-name">-->
+<!--													<a href="#">Product Name</a>-->
+<!--												</div>-->
+<!--												<div class="dotted-dot"></div>-->
+<!--												<div class="dotted-price">-->
+<!--													<span>$30.00</span>-->
+<!--												</div>-->
+<!--											</div>&lt;!&ndash; dotted title &ndash;&gt;-->
+<!--											<p>awesome theme with holistic</p>-->
+<!--											<div class="rating-star">-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<span>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star-half-o"></i>-->
+<!--												</span>-->
+<!--											</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--										</div>&lt;!&ndash; food item details &ndash;&gt;-->
+<!--									</li>&lt;!&ndash; food-item &ndash;&gt;-->
+<!--									<li class="food-item">-->
+<!--										<div class="food-item-img">-->
+<!--											<a href="#"><img src="assets/images/food-menu/w-food2.jpg" alt=""></a>-->
+<!--										</div>-->
+<!--										<div class="food-item-details">-->
+<!--											<div class="dotted-title">-->
+<!--												<div class="dotted-name">-->
+<!--													<a href="#">Product Name</a>-->
+<!--												</div>-->
+<!--												<div class="dotted-dot"></div>-->
+<!--												<div class="dotted-price">-->
+<!--													<span>$30.00</span>-->
+<!--												</div>-->
+<!--											</div>&lt;!&ndash; dotted title &ndash;&gt;-->
+<!--											<p>awesome theme with holistic</p>-->
+<!--											<div class="rating-star">-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<span>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star-half-o"></i>-->
+<!--												</span>-->
+<!--											</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--										</div>&lt;!&ndash; food item details &ndash;&gt;-->
+<!--									</li>&lt;!&ndash; food-item &ndash;&gt;-->
+<!--									<li class="food-item">-->
+<!--										<div class="food-item-img">-->
+<!--											<a href="#"><img src="assets/images/food-menu/w-food3.jpg" alt=""></a>-->
+<!--										</div>-->
+<!--										<div class="food-item-details">-->
+<!--											<div class="dotted-title">-->
+<!--												<div class="dotted-name">-->
+<!--													<a href="#">Product Name</a>-->
+<!--												</div>-->
+<!--												<div class="dotted-dot"></div>-->
+<!--												<div class="dotted-price">-->
+<!--													<span>$30.00</span>-->
+<!--												</div>-->
+<!--											</div>&lt;!&ndash; dotted title &ndash;&gt;-->
+<!--											<p>awesome theme with holistic</p>-->
+<!--											<div class="rating-star">-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<span>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star-half-o"></i>-->
+<!--												</span>-->
+<!--											</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--										</div>&lt;!&ndash; food item details &ndash;&gt;-->
+<!--									</li>&lt;!&ndash; food-item &ndash;&gt;-->
+<!--									<li class="food-item">-->
+<!--										<div class="food-item-img">-->
+<!--											<a href="#"><img src="assets/images/food-menu/w-food4.jpg" alt=""></a>-->
+<!--										</div>-->
+<!--										<div class="food-item-details">-->
+<!--											<div class="dotted-title">-->
+<!--												<div class="dotted-name">-->
+<!--													<a href="#">Product Name</a>-->
+<!--												</div>-->
+<!--												<div class="dotted-dot"></div>-->
+<!--												<div class="dotted-price">-->
+<!--													<span>$30.00</span>-->
+<!--												</div>-->
+<!--											</div>&lt;!&ndash; dotted title &ndash;&gt;-->
+<!--											<p>awesome theme with holistic</p>-->
+<!--											<div class="rating-star">-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--												<span>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star"></i>-->
+<!--													<i class="fa fa-star-half-o"></i>-->
+<!--												</span>-->
+<!--											</div>&lt;!&ndash; rating star &ndash;&gt;-->
+<!--										</div>&lt;!&ndash; food item details &ndash;&gt;-->
+<!--									</li>&lt;!&ndash; food-item &ndash;&gt;-->
+<!--								</ul>-->
+<!--							</div>&lt;!&ndash; widget-content &ndash;&gt;-->
+<!--						</div>&lt;!&ndash; widget &ndash;&gt;-->
+<!--					</div>&lt;!&ndash; sidebar &ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>&lt;!&ndash; container &ndash;&gt;-->
+<!--	</section>&lt;!&ndash; product-single end&ndash;&gt;-->
 
 	<!-- similar-product section-->
 	<section class="similar-product">
@@ -943,7 +1059,7 @@
 			<p>&copy; <span>Tomato</span> 2016, All Right Reserves  |  Design by <a href="#">LabArtisan</a></p>
 		</div><!-- footer-bottom -->
 	</footer><!-- Footer End-->
-
+	<script src="assets/js/users.js"></script>
 	<script src="assets/js/jquery-2.2.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/swiper.min.js"></script>

@@ -43,14 +43,25 @@ function getAll() {
 }
 
 function showAllDishes(response) {
+    console.log(response);
+    let limit = 0;
+    if (user == "admin") {
+        limit = 1;
+    }
+    while (foodMenu.children.length > limit) {
+        foodMenu.removeChild(foodMenu.lastChild)
+
+    }
     for (let i = 0; i < response.length; i++) {
         showDish(response[i]);
     }
 }
 
 function showDish(response) {
+    // console.log(response);
     let menuItem = document.createElement('div');
     menuItem.id = response.id
+    // console.log(response);
     menuItem.classList.add('element-item', 'food-item', 'style-2', 'col-md-3', 'col-sm-4');
     menuItem.innerHTML = "<div class=\"food-item-img\">\n" +
         "        <img src=\"assets/images/food-menu/item13.jpg\" alt=\"\">\n" +
@@ -91,12 +102,12 @@ function showDish(response) {
         renatLoh.innerHTML = " <a href=\"#\" class=\"button m-2\">edit dish</a> " +
             " <a href=\"#\" class=\"button m-2\">delete dish</a>"
         var buttons = renatLoh.querySelectorAll('.button')
-        console.log(buttons)
+        // console.log(buttons)
         buttons[0].addEventListener('click', function () {
             editDish(menuItem, response)
         })
         buttons[1].addEventListener('click', function () {
-            deleteDish(menuItem, response)
+            deleteDish(menuItem, response.id)
         })
     } else {
         renatLoh.innerHTML = " <a href=\"#\" class=\"button\">add to cart</a> "
@@ -109,6 +120,8 @@ function showDish(response) {
 getAll();
 
 function editDish(menuItem, response) {
+    console.log(menuItem)
+    console.log(response)
     menuItem.style.display = 'none'
     let editForm = document.createElement('div');
     editForm.classList.add('element-item', 'food-item', 'style-2', 'col-md-3', 'col-sm-4');
@@ -137,6 +150,7 @@ function editDish(menuItem, response) {
         "\t\t\t\t\t\t</div>"
     let buttons = editForm.querySelectorAll('.button')
     buttons[0].addEventListener('click', function () {
+            // console.log(response);
             updateDish(menuItem, response.id)
         }
     )
@@ -144,16 +158,17 @@ function editDish(menuItem, response) {
             closeForm(menuItem)
         }
     )
-    menuItem.parentNode.insertBefore(editForm, editForm.nextSibling)
+    menuItem.parentNode.insertBefore(editForm, menuItem.nextSibling)
 
 }
 
 function updateDish(menuItem, id) {
-    console.log(menuItem)
-    console.log(id)
+    // console.log(menuItem)
+    // console.log(id)
     let editForm = menuItem.nextSibling
-    console.log(editForm)
-    var allInputs = editForm.querySelectorAll('.input-box')
+    // console.log(editForm)
+
+    let allInputs = editForm.querySelectorAll('.input-box')
     let dish = {
         title: allInputs[0].value,
         price: allInputs[1].value,
@@ -165,16 +180,16 @@ function updateDish(menuItem, id) {
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(dish),
-        success:updateBlock
+        success: updateBlock
     })
-    console.log(menuItem)
-    menuItem.style.display= 'block'
+    // console.log(menuItem)
+    menuItem.style.display = 'block'
     menuItem.parentNode.removeChild(menuItem.nextSibling)
 }
 
 function updateBlock(response) {
     if (response) {
-        console.log(response)
+        // console.log(response)
         var menuItem = document.querySelector(`#${CSS.escape(response.id)}`)
         var title = menuItem.querySelector('.dotted-name')
         var price = menuItem.querySelector('.dotted-price')
@@ -200,3 +215,58 @@ function deleteDish(menuItem, id) {
 
 function addToCart() {
 }
+
+
+// let nameButton = document.querySelector('.sortByTitle')
+// let priceButton = document.querySelector(".sortByPrice")
+// let defaultButton = document.querySelector(".sortBy")
+let selectSortButton = document.querySelector('.selectSort')
+selectSortButton.addEventListener('change', sort)
+// nameButton.addEventListener('select', sort)
+// selectSortButton.addEventListener('change', sort)
+function sort(e) {
+    console.log(e.target.value)
+    let sort = e.target.value
+    $.ajax({
+        url: "http://localhost:8080/dishes?sort=" + sort,
+        type: 'GET',
+        contentType: 'application/json',
+        success: showAllDishes
+    })
+}
+
+let selectCategoryButton = document.querySelector('.selectCategory')
+selectCategoryButton.addEventListener('change', selectCategory)
+
+function selectCategory(e) {
+    let category = e.target.value
+    $.ajax({
+        url: "http://localhost:8080/dishes/select?category=" + category,
+        type: 'GET',
+        contentType: 'application/json',
+        success: showAllDishes
+    });
+}
+
+var searchForm = document.querySelector('.search-form')
+var button = searchForm.getElementsByTagName('button')
+var input = searchForm.querySelector('input')
+button[0].addEventListener('click', function () {
+    $.ajax({
+        url: "http://localhost:8080/dishes/find?template=" + input.value,
+        type: 'GET',
+        contentType: 'application/json',
+        success: showAllDishes
+    });
+})
+
+$.ajax({
+    url: "http://localhost:8080/cart",
+    type: 'GET',
+    contentType: 'application/json',
+    success: function (data){
+        console.log(data)
+    }
+})
+
+

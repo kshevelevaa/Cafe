@@ -29,11 +29,14 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/menu")
+    @GetMapping("/shop")
     public String menu(Model model) {
-
         model.addAttribute("user", userService.getUserAuth().getUsername());
         return "shop";
+    }
+    @GetMapping("/product-details")
+    public String users(){
+        return "product-details";
     }
 
 }
