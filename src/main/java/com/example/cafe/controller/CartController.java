@@ -1,46 +1,23 @@
 package com.example.cafe.controller;
 
-import com.example.cafe.entity.impl.Dish;
-import com.example.cafe.entity.impl.DishInOrder;
-import com.example.cafe.entity.impl.User;
 import com.example.cafe.service.impl.DishInOrderService;
-import com.example.cafe.service.impl.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/details")
 public class CartController {
 
     @Autowired
     private DishInOrderService dishInOrderService;
 
-    @Autowired
-    private OrderService orderService;
-
-    @GetMapping
-    public List<DishInOrder> getAll(@AuthenticationPrincipal User user){
-        return dishInOrderService.findDishByOrderId(orderService.getLastOrder(user.getId()).getId());
-    }
-
-    @DeleteMapping("/delete")
-    public void deleteDishInOrder(@RequestParam(value = "id", required = false) Long id){
-        dishInOrderService.deleteById(id);
-    }
-
-    @PutMapping("/change")
-    public DishInOrder changeDishCount(@RequestParam(value = "change") String change,
-                                       @RequestParam(value = "dish_id") Long dish_id,
-                                       @RequestParam(value = "order_id") Long order_id){
-        if (change.equals("plus")){
-            return dishInOrderService.addDish(dish_id, order_id);
-        }else if (change.equals("minus")){
-            return dishInOrderService.minusDish(dish_id, order_id);
-        }
-        return null;
+    @GetMapping("/item")
+    public Map<String, Object> getCartItem(@RequestParam(value = "order_id") Long order_id){
+        return dishInOrderService.getCartItem(order_id);
     }
 }

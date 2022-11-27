@@ -2,6 +2,7 @@ package com.example.cafe.controller;
 
 import com.example.cafe.entity.impl.Dish;
 import com.example.cafe.service.impl.DishService;
+import com.example.cafe.service.impl.OrderService;
 import com.example.cafe.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class MainController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private OrderService orderService;
     @GetMapping("/index")
     public String index(Model model) {
         try {
@@ -32,11 +36,17 @@ public class MainController {
     @GetMapping("/shop")
     public String menu(Model model) {
         model.addAttribute("user", userService.getUserAuth().getUsername());
+        model.addAttribute("order", orderService.getLastOrder(userService.getUserAuth().getId()));
         return "shop";
     }
+
     @GetMapping("/product-details")
     public String users(){
         return "product-details";
     }
 
+    @GetMapping("/cart")
+    public String cart(){
+        return "cart";
+    }
 }

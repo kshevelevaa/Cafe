@@ -28,17 +28,11 @@ public class OrderDao extends AbstractDao<Order> {
 
 
     public Long saveOrder(Order order) {
-//        KeyHolder keyHolder = new GeneratedKeyHolder();
-//        jdbcTemplate.update("INSERT INTO orders (user_id, address) VALUES (?,?)",
-//                order.getUser_id(),
-//                order.getAddress()
-//        );
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("user_id", order.getUser_id());
         parameters.put("address", order.getAddress());
         Number newId = simpleJdbcInsert.executeAndReturnKey(parameters);
         return (long) newId;
-//        return keyHolder.getKey().longValue();
     }
 
 

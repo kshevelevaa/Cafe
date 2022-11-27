@@ -1,7 +1,5 @@
 package com.example.cafe.controller;
 
-import com.example.cafe.entity.impl.BookingTable;
-import com.example.cafe.entity.impl.Order;
 import com.example.cafe.entity.impl.User;
 import com.example.cafe.service.impl.BookingTableService;
 import com.example.cafe.service.impl.OrderService;

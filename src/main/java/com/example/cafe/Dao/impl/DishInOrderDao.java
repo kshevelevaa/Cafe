@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class DishInOrderDao extends AbstractDao<DishInOrder> {
@@ -59,6 +60,11 @@ public class DishInOrderDao extends AbstractDao<DishInOrder> {
     public List<DishInOrder> findDishByOrderId(Long order_id){
         String request = "SELECT * FROM " + tableName + " WHERE order_id= ?";
         return jdbcTemplate.query(request, new Object[]{order_id}, new BeanPropertyRowMapper<>(DishInOrder.class));
+    }
+
+    public List<Dish> findDishInDishInOrder(Long order_id){
+        String request = "SELECT dish_id FROM " + tableName + " WHERE order_id= ?";
+        return jdbcTemplate.query(request, new Object[]{order_id}, new BeanPropertyRowMapper<>(Dish.class));
     }
 
 }

@@ -112,7 +112,9 @@ function showDish(response) {
     } else {
         renatLoh.innerHTML = " <a href=\"#\" class=\"button\">add to cart</a> "
         var button = renatLoh.querySelector('.button')
-        button.addEventListener('click', addToCart)
+        button.addEventListener('click', function (){
+            addToCart(response)
+        })
     }
     foodMenu.appendChild(menuItem);
 }
@@ -159,8 +161,10 @@ function editDish(menuItem, response) {
         }
     )
     menuItem.parentNode.insertBefore(editForm, menuItem.nextSibling)
-
 }
+
+console.log(order)
+
 
 function updateDish(menuItem, id) {
     // console.log(menuItem)
@@ -213,7 +217,12 @@ function deleteDish(menuItem, id) {
     menuItem.parentNode.removeChild(menuItem)
 }
 
-function addToCart() {
+function addToCart(response) {
+    $.ajax({
+        url: "http://localhost:8080/order/change?change=plus&dish_id="+response.id +"&order_id=" + order.id,
+        type: 'PUT',
+        contentType: 'application/json',
+    })
 }
 
 

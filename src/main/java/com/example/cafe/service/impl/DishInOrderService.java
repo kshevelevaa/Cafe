@@ -8,7 +8,9 @@ import com.example.cafe.service.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DishInOrderService extends AbstractService<DishInOrder, DishInOrderDao> {
@@ -72,7 +74,6 @@ public class DishInOrderService extends AbstractService<DishInOrder, DishInOrder
                     dishInOrderDao.deleteById(currentDish.getId());
                     return null;
                 }
-
             }
         }
         return null;
@@ -80,5 +81,12 @@ public class DishInOrderService extends AbstractService<DishInOrder, DishInOrder
 
     public List<DishInOrder> findDishByOrderId(Long order_id) {
         return dishInOrderDao.findDishByOrderId(order_id);
+    }
+
+    public Map<String, Object> getCartItem(Long order_id){
+        Map<String, Object> cartItem= new HashMap<>();
+        cartItem.put("dish", dishInOrderDao.findDishInDishInOrder(order_id));
+        cartItem.put("dishInOrder", dishInOrderDao.findByOrderId(order_id));
+        return cartItem;
     }
 }
