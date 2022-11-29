@@ -1,16 +1,12 @@
 package com.example.cafe.service.impl;
 
 import com.example.cafe.Dao.impl.DishInOrderDao;
-import com.example.cafe.entity.impl.Dish;
 import com.example.cafe.entity.impl.DishInOrder;
-import com.example.cafe.entity.impl.Order;
 import com.example.cafe.service.AbstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class DishInOrderService extends AbstractService<DishInOrder, DishInOrderDao> {
@@ -52,16 +48,6 @@ public class DishInOrderService extends AbstractService<DishInOrder, DishInOrder
         return newDishInOrder;
     }
 
-    public void deleteByDishIdAndOrderId(Dish dish, Order order) {
-        List<DishInOrder> allDishes = dishInOrderDao.findDishByOrderId(order.getId());
-        for (DishInOrder currentDish : allDishes) {
-            if (currentDish.getDish_id() == dish.getId()) {
-                dishInOrderDao.deleteById(currentDish.getId());
-                return;
-            }
-        }
-    }
-
     public DishInOrder minusDish(Long dish_id, Long order_id) {
         List<DishInOrder> allDishes = dishInOrderDao.findDishByOrderId(order_id);
         for (DishInOrder currentDish : allDishes) {
@@ -83,10 +69,8 @@ public class DishInOrderService extends AbstractService<DishInOrder, DishInOrder
         return dishInOrderDao.findDishByOrderId(order_id);
     }
 
-    public Map<String, Object> getCartItem(Long order_id){
-        Map<String, Object> cartItem= new HashMap<>();
-        cartItem.put("dish", dishInOrderDao.findDishInDishInOrder(order_id));
-        cartItem.put("dishInOrder", dishInOrderDao.findByOrderId(order_id));
-        return cartItem;
+    public List getCartItem(Long order_id) {
+        return dishInOrderDao.findDishInDishInOrder(order_id);
     }
+
 }

@@ -43,21 +43,21 @@ public class OrderService extends AbstractService<Order, OrderDao> {
         return true;
     }
 
-    public boolean deleteWithNestedEntities(Long id) {
-        boolean deleteEntity = deleteById(id);
-        boolean deleteDishInOrder = dishInOrderService.deleteByOrderId(id);
-
-        if (deleteDishInOrder == false) {
-            System.out.println("there were no dishInOrders");
-        } else {
-            System.out.println("dishInOrders successfully deleted");
-        }
-
-        if (deleteEntity == false) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+//    public boolean deleteWithNestedEntities(Long id) {
+//        boolean deleteEntity = deleteById(id);
+//        boolean deleteDishInOrder = dishInOrderService.deleteByOrderId(id);
+//
+//        if (deleteDishInOrder == false) {
+//            System.out.println("there were no dishInOrders");
+//        } else {
+//            System.out.println("dishInOrders successfully deleted");
+//        }
+//
+//        if (deleteEntity == false) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
 
 }

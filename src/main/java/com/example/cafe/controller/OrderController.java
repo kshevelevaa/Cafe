@@ -1,6 +1,7 @@
 package com.example.cafe.controller;
 
 import com.example.cafe.entity.impl.DishInOrder;
+import com.example.cafe.entity.impl.Order;
 import com.example.cafe.entity.impl.User;
 import com.example.cafe.service.impl.DishInOrderService;
 import com.example.cafe.service.impl.OrderService;
@@ -40,5 +41,18 @@ public class OrderController {
             return dishInOrderService.minusDish(dish_id, order_id);
         }
         return null;
+    }
+
+    @PutMapping("/send")
+    public Order finishOrder(@RequestParam(value = "order_id") Long order_id,
+                             @AuthenticationPrincipal User user){
+        Order currentOrder = orderService.findById(order_id);
+        currentOrder.setSend(true);
+        System.out.println(currentOrder);
+        orderService.updateEntity(currentOrder, order_id);
+        Order newOrder = new Order();
+        newOrder.setUser_id(user.getId());
+        orderService.saveEntity(newOrder);
+        return currentOrder;
     }
 }

@@ -31,6 +31,7 @@ public class OrderDao extends AbstractDao<Order> {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("user_id", order.getUser_id());
         parameters.put("address", order.getAddress());
+        parameters.put("is_send", order.isSend());
         Number newId = simpleJdbcInsert.executeAndReturnKey(parameters);
         return (long) newId;
     }
@@ -38,18 +39,20 @@ public class OrderDao extends AbstractDao<Order> {
 
     @Override
     public void save(Order order) {
-        jdbcTemplate.update("INSERT INTO orders (user_id, address) VALUES (?,?)",
+        jdbcTemplate.update("INSERT INTO orders (user_id, address, is_send) VALUES (?,?,?)",
                 order.getUser_id(),
-                order.getAddress()
+                order.getAddress(),
+                order.isSend()
         );
     }
 
     @Override
     public void update(Order order, Long id) {
         jdbcTemplate.update(
-                "UPDATE orders SET user_id=?, address=? WHERE id =? ",
+                "UPDATE orders SET user_id=?, address=?, is_send=? WHERE id =? ",
                 order.getUser_id(),
                 order.getAddress(),
+                order.isSend(),
                 id);
     }
 

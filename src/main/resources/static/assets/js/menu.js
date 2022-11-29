@@ -130,19 +130,19 @@ function editDish(menuItem, response) {
     editForm.innerHTML = "<div class=\"food-item-img\">\n" +
         "\t\t\t\t\t\t\tEdit dish\n" +
         "\t\t\t\t\t\t\t<div class=\"single-input\">\n" +
-        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.title + "' type=\"text\" name=\"Person\" placeholder=\"No. of Person*\">\n" +
+        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.title + "' type=\"text\" name=\"Person\" placeholder=\"title\">\n" +
         "\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n" +
         "\t\t\t\t\t\t\t</div>\n" +
         "\t\t\t\t\t\t\t<div class=\"single-input\">\n" +
-        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.price + "' type=\"text\" name=\"Person\" placeholder=\"No. of Person*\">\n" +
+        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.price + "' type=\"text\" name=\"Person\" placeholder=\"price\">\n" +
         "\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n" +
         "\t\t\t\t\t\t\t</div>\n" +
         "\t\t\t\t\t\t\t<div class=\"single-input\">\n" +
-        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.category_id + "' type=\"number\" name=\"Person\" placeholder=\"No. of Person*\">\n" +
+        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.category_id + "' type=\"number\" name=\"Person\" placeholder=\"category_id\">\n" +
         "\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n" +
         "\t\t\t\t\t\t\t</div>\n" +
         "\t\t\t\t\t\t\t<div class=\"single-input\">\n" +
-        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.cook_id + "' type=\"text\" name=\"Person\" placeholder=\"No. of Person*\">\n" +
+        "\t\t\t\t\t\t\t\t<input class=\"input-box\" value='" + response.cook_id + "' type=\"text\" name=\"Person\" placeholder=\"cook_id\">\n" +
         "\t\t\t\t\t\t\t\t<i class=\"fa fa-user\"></i>\n" +
         "\t\t\t\t\t\t\t</div>\n" +
         "\t\t\t\t\t\t\t<div class=\"reservation-btn\">\n" +
@@ -218,6 +218,7 @@ function deleteDish(menuItem, id) {
 }
 
 function addToCart(response) {
+    console.log(response)
     $.ajax({
         url: "http://localhost:8080/order/change?change=plus&dish_id="+response.id +"&order_id=" + order.id,
         type: 'PUT',
@@ -269,13 +270,13 @@ button[0].addEventListener('click', function () {
     });
 })
 
-$.ajax({
-    url: "http://localhost:8080/cart",
-    type: 'GET',
-    contentType: 'application/json',
-    success: function (data){
-        console.log(data)
-    }
-})
+// $.ajax({
+//     url: "http://localhost:8080/cart",
+//     type: 'GET',
+//     contentType: 'application/json',
+//     success: function (data){
+//         console.log(data)
+//     }
+// })
 
 

@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cart</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<link rel="stylesheet" href="assets/css/font-awesome.css" />
 	<link rel="stylesheet" href="assets/flaticon/flaticon.css" />
 	<link rel="stylesheet" href="assets/css/lightbox.css" />
@@ -244,67 +248,62 @@
 						<tbody class="tableBody">
 					</table><!--  shop cart -->
 				</div>
-				<div class="coupon-checkout">
-					<div class="coupon">
-						<input class="input-box" type="text" name="text" placeholder="Coupon Code...">
-						<input class="button" type="submit" name="submit" value="apply coupon">
-					</div><!-- coupon -->
-					<div class="checkout">
-						<button type="submit" class="button">update cart</button>
-						<button type="submit" class="button">proceed checkout</button>
-					</div><!-- checkout -->
-				</div><!-- coupon-checkout -->
+<!--				<div class="coupon-checkout">-->
+<!--					<div class="coupon">-->
+<!--						<input class="input-box" type="text" name="text" placeholder="Coupon Code...">-->
+<!--						<input class="button" type="submit" name="submit" value="apply coupon">-->
+<!--					</div>&lt;!&ndash; coupon &ndash;&gt;-->
+<!--					<div class="checkout">-->
+<!--						<button type="submit" class="button">update cart</button>-->
+<!--						<button type="submit" class="button">proceed checkout</button>-->
+<!--					</div>&lt;!&ndash; checkout &ndash;&gt;-->
+<!--				</div>&lt;!&ndash; coupon-checkout &ndash;&gt;-->
 				<div class="shipping-totalprice">
 					<div class="row">
 						<div class="col-md-6">
-							<div class="calculate-shipping">
-								<h3>Calculate Shipping</h3>
-								<div class="catagory-item">
-									<select>
-										<option>United Kingdom(UK)</option>
-										<option>Bangladesh</option>
-										<option>United State(USA)</option>
-										<option>Gana</option>
-										<option>Honolulu</option>
-										<option>Honduras</option>
-									</select>
-								</div><!-- catagory-item -->
-								<div class="row">
-									<div class="col-md-6">
-										<div class="catagory-item">
-											<select>
-												<option>State/Country</option>
-												<option>Dhaka</option>
-												<option>Chittagong</option>
-												<option>Khulna</option>
-												<option>Sylhet</option>
-												<option>Rajshahi</option>
-											</select>
-										</div><!-- catagory-item -->
-									</div>
-									<div class="col-md-6">
-										<input class="input-box" type="text" name="postcode" placeholder="postcode/ZIP">
-									</div>
-								</div>
-								<button type="submit" class="button">update total</button>
-							</div><!-- calculate-shipping -->
+<!--							<div class="calculate-shipping">-->
+<!--								<h3>Calculate Shipping</h3>-->
+<!--								<div class="catagory-item">-->
+<!--									<select>-->
+<!--										<option>United Kingdom(UK)</option>-->
+<!--										<option>Bangladesh</option>-->
+<!--										<option>United State(USA)</option>-->
+<!--										<option>Gana</option>-->
+<!--										<option>Honolulu</option>-->
+<!--										<option>Honduras</option>-->
+<!--									</select>-->
+<!--								</div>&lt;!&ndash; catagory-item &ndash;&gt;-->
+<!--								<div class="row">-->
+<!--									<div class="col-md-6">-->
+<!--										<div class="catagory-item">-->
+<!--											<select>-->
+<!--												<option>State/Country</option>-->
+<!--												<option>Dhaka</option>-->
+<!--												<option>Chittagong</option>-->
+<!--												<option>Khulna</option>-->
+<!--												<option>Sylhet</option>-->
+<!--												<option>Rajshahi</option>-->
+<!--											</select>-->
+<!--										</div>&lt;!&ndash; catagory-item &ndash;&gt;-->
+<!--									</div>-->
+<!--									<div class="col-md-6">-->
+<!--										<input class="input-box" type="text" name="postcode" placeholder="postcode/ZIP">-->
+<!--									</div>-->
+<!--								</div>-->
+<!--								<button type="submit" class="button">update total</button>-->
+<!--							</div>&lt;!&ndash; calculate-shipping &ndash;&gt;-->
 						</div>
 						<div class="col-md-6">
 							<div class="total-price">
 								<h3>Cart Total</h3>
-								<ul>
-									<li>
-										<span class="pull-left">Cart Subtotal</span>
-										<p class="pull-right">$ 1214.98</p>
-									</li>
-									<li>
-										<span class="pull-left">Shipping and Handling</span>
-										<p class="pull-right">Free Shipping</p>
-									</li>
-									<li class="order-total">
-										<span class="pull-left">Order Total</span>
-										<p class="pull-right">$ 1214.98</p>
-									</li>
+								<ul class ="totalPrice" >
+<!--
+<!--									<div><div class="food-item-img-overlay-content">-->
+<!--										<a href="#" class="button">finish order</a> </div></div>-->
+								</ul>
+								<ul class="totalPrice">
+									<div><div class="food-item-img-overlay-content">
+										<a href="#" class="button finish" style="margin-top: 200px ">finish order</a> </div></div>
 								</ul>
 							</div>
 						</div>
@@ -512,7 +511,11 @@
 			<p>&copy; <span>Tomato</span> 2016, All Right Reserves  |  Design by <a href="#">LabArtisan</a></p>
 		</div><!-- footer-bottom -->
 	</footer><!-- Footer End-->
-
+	<script th:inline="javascript">
+		var user = [[${user}]];
+		var order = [[${order}]];
+	</script>
+	<script src="assets/js/cart.js"></script>
 	<script src="assets/js/jquery-2.2.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/swiper.min.js"></script>

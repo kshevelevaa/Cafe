@@ -1,7 +1,6 @@
 package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
-import com.example.cafe.entity.impl.Dish;
 import com.example.cafe.entity.impl.DishInOrder;
 import com.example.cafe.entity.impl.Order;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -9,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class DishInOrderDao extends AbstractDao<DishInOrder> {
@@ -38,33 +36,33 @@ public class DishInOrderDao extends AbstractDao<DishInOrder> {
                 id);
     }
 
-    public void deleteByOrderId(Long user_id){
+    public void deleteByOrderId(Long user_id) {
         String request = "DELETE FROM " + tableName + " WHERE order_id= ?";
         jdbcTemplate.update(request, user_id);
     }
 
-    public Order findByOrderId(Long user_id){
+    public Order findByOrderId(Long user_id) {
         String request = "SELECT * FROM " + tableName + " WHERE order_id= ?";
         return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(Order.class)).stream()
                 .findAny()
                 .orElse(null);
     }
 
-    public Order findByDishId(Long user_id){
+    public Order findByDishId(Long user_id) {
         String request = "SELECT * FROM " + tableName + " WHERE dish_id= ?";
         return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(Order.class)).stream()
                 .findAny()
                 .orElse(null);
     }
 
-    public List<DishInOrder> findDishByOrderId(Long order_id){
+    public List<DishInOrder> findDishByOrderId(Long order_id) {
         String request = "SELECT * FROM " + tableName + " WHERE order_id= ?";
         return jdbcTemplate.query(request, new Object[]{order_id}, new BeanPropertyRowMapper<>(DishInOrder.class));
     }
 
-    public List<Dish> findDishInDishInOrder(Long order_id){
-        String request = "SELECT dish_id FROM " + tableName + " WHERE order_id= ?";
-        return jdbcTemplate.query(request, new Object[]{order_id}, new BeanPropertyRowMapper<>(Dish.class));
+    public List findDishInDishInOrder(Long order_id) {
+        String request = "SELECT * FROM dish_in_order join dish on dish_in_order.dish_id=dish.id WHERE order_id= ?";
+        return jdbcTemplate.queryForList(request, new Object[]{order_id});
     }
 
 }

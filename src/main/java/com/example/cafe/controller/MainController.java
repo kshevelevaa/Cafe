@@ -1,10 +1,13 @@
 package com.example.cafe.controller;
 
 import com.example.cafe.entity.impl.Dish;
+import com.example.cafe.entity.impl.User;
+import com.example.cafe.service.impl.DishInOrderService;
 import com.example.cafe.service.impl.DishService;
 import com.example.cafe.service.impl.OrderService;
 import com.example.cafe.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,10 @@ public class MainController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private DishInOrderService dishInOrderService;
+
     @GetMapping("/index")
     public String index(Model model) {
         try {
@@ -30,6 +37,8 @@ public class MainController {
             model.addAttribute("dishes", dishes);
         } catch (Exception e) {
         }
+//        Long id = Long.valueOf(1);
+//        System.out.println(dishInOrderService.findTotalPrice(id));
         return "index";
     }
 
@@ -41,12 +50,13 @@ public class MainController {
     }
 
     @GetMapping("/product-details")
-    public String users(){
+    public String users() {
         return "product-details";
     }
 
     @GetMapping("/cart")
-    public String cart(){
+    public String cart(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("order", orderService.getLastOrder(user.getId()));
         return "cart";
     }
 }
