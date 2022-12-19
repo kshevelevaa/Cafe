@@ -44,5 +44,4 @@ public abstract class AbstractDao<T extends AbstractEntity> {
         String request = "DELETE FROM " + tableName + " WHERE id= ?";
         jdbcTemplate.update(request, id);
     }
-
 }

@@ -39,7 +39,6 @@ function getAll() {
         contentType: 'application/json',
         success: showAllDishes
     })
-
 }
 
 function showAllDishes(response) {
@@ -58,10 +57,8 @@ function showAllDishes(response) {
 }
 
 function showDish(response) {
-    // console.log(response);
     let menuItem = document.createElement('div');
     menuItem.id = response.id
-    // console.log(response);
     menuItem.classList.add('element-item', 'food-item', 'style-2', 'col-md-3', 'col-sm-4');
     menuItem.innerHTML = "<div class=\"food-item-img\">\n" +
         "        <img src=\"assets/images/food-menu/item13.jpg\" alt=\"\">\n" +
@@ -112,7 +109,7 @@ function showDish(response) {
     } else {
         renatLoh.innerHTML = " <a href=\"#\" class=\"button\">add to cart</a> "
         var button = renatLoh.querySelector('.button')
-        button.addEventListener('click', function (){
+        button.addEventListener('click', function () {
             addToCart(response)
         })
     }
@@ -152,7 +149,6 @@ function editDish(menuItem, response) {
         "\t\t\t\t\t\t</div>"
     let buttons = editForm.querySelectorAll('.button')
     buttons[0].addEventListener('click', function () {
-            // console.log(response);
             updateDish(menuItem, response.id)
         }
     )
@@ -220,7 +216,7 @@ function deleteDish(menuItem, id) {
 function addToCart(response) {
     console.log(response)
     $.ajax({
-        url: "http://localhost:8080/order/change?change=plus&dish_id="+response.id +"&order_id=" + order.id,
+        url: "http://localhost:8080/order/change?change=plus&dish_id=" + response.id + "&order_id=" + order.id,
         type: 'PUT',
         contentType: 'application/json',
     })
@@ -270,13 +266,5 @@ button[0].addEventListener('click', function () {
     });
 })
 
-// $.ajax({
-//     url: "http://localhost:8080/cart",
-//     type: 'GET',
-//     contentType: 'application/json',
-//     success: function (data){
-//         console.log(data)
-//     }
-// })
 
 

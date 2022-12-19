@@ -99,5 +99,4 @@ public class DishDao extends AbstractDao<Dish> {
                 new Object[]{template},
                 new BeanPropertyRowMapper(Dish.class));
     }
-
 }

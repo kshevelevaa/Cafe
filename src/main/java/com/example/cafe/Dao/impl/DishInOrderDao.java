@@ -65,4 +65,9 @@ public class DishInOrderDao extends AbstractDao<DishInOrder> {
         return jdbcTemplate.queryForList(request, new Object[]{order_id});
     }
 
+    public int findDishCount(Long order_id, Long dish_id) {
+        String request = "SELECT dish_count FROM " + tableName + " WHERE order_id= ? AND dish_id=?";
+         return jdbcTemplate.update(request);
+    }
+
 }
