@@ -163,8 +163,6 @@ console.log(order)
 
 
 function updateDish(menuItem, id) {
-    // console.log(menuItem)
-    // console.log(id)
     let editForm = menuItem.nextSibling
     // console.log(editForm)
 

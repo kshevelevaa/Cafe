@@ -13,6 +13,7 @@ public abstract class AbstractDao<T extends AbstractEntity> {
     public final JdbcTemplate jdbcTemplate;
     public TableName tableName;
     public static DataSource dataSource;
+
     public AbstractDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         dataSource = jdbcTemplate.getDataSource();

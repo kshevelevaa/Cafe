@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/details")
@@ -18,7 +17,7 @@ public class CartController {
     private DishInOrderService dishInOrderService;
 
     @GetMapping("/item")
-    public List getCartItem(@RequestParam(value = "order_id") Long order_id){
+    public List getCartItem(@RequestParam(value = "order_id") Long order_id) {
         return dishInOrderService.getCartItem(order_id);
     }
 }

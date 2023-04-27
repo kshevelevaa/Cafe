@@ -26,30 +26,33 @@ public class DishService extends AbstractService<Dish, DishDao> {
         return true;
     }
 
-    public List<Dish> sortByTitle(){
+    public List<Dish> sortByTitle() {
         return currentDao.sortByTitle();
     }
 
-    public List<Dish> sortByPrice(){
+    public List<Dish> sortByPrice() {
         return currentDao.sortByPrice();
     }
 
-    public List<Dish> selectBreakfast(){
+    public List<Dish> selectBreakfast() {
         return currentDao.selectBreakfast();
     }
-    public List<Dish> selectLunch(){
+
+    public List<Dish> selectLunch() {
         return currentDao.selectLunch();
     }
-    public List<Dish> selectDinner(){
+
+    public List<Dish> selectDinner() {
         return currentDao.selectDinner();
     }
-    public List<Dish> selectDrink(){
+
+    public List<Dish> selectDrink() {
         return currentDao.selectDrink();
     }
-    public List<Dish> findDishes(String template){
+
+    public List<Dish> findDishes(String template) {
         return currentDao.findDishes(template);
     }
-
 
 
 }

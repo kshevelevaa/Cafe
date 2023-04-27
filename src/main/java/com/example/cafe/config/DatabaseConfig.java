@@ -41,7 +41,7 @@ public class DatabaseConfig implements WebMvcConfigurer {
 
 
     @Bean
-    public SimpleJdbcCall jdbcCall(){
+    public SimpleJdbcCall jdbcCall() {
         return new SimpleJdbcCall(dataSource());
     }
 }

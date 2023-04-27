@@ -1,14 +1,10 @@
 package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
-import com.example.cafe.entity.impl.BookingTable;
 import com.example.cafe.entity.impl.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -56,12 +52,12 @@ public class OrderDao extends AbstractDao<Order> {
                 id);
     }
 
-    public void deleteByUserId(Long user_id){
+    public void deleteByUserId(Long user_id) {
         String request = "DELETE FROM " + tableName + " WHERE user_id= ?";
         jdbcTemplate.update(request, user_id);
     }
 
-    public List<Order> findByUserId(Long user_id){
+    public List<Order> findByUserId(Long user_id) {
         String request = "SELECT * FROM " + tableName + " WHERE user_id= ?";
         return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(Order.class));
     }

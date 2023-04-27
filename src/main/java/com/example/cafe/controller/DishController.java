@@ -1,7 +1,5 @@
 package com.example.cafe.controller;
 
-import com.example.cafe.entity.impl.Category;
-import com.example.cafe.entity.impl.CategoryName;
 import com.example.cafe.entity.impl.Dish;
 import com.example.cafe.service.impl.CategoryService;
 import com.example.cafe.service.impl.DishService;
@@ -79,10 +77,10 @@ public class DishController {
 
     @GetMapping("/find")
     public List<Dish> findDishes(@RequestParam(value = "template", required = false) String template) {
-       if (template == null || template.isEmpty()){
-           return dishService.findAll();
-       }else {
-           return dishService.findDishes(template);
-       }
+        if (template == null || template.isEmpty()) {
+            return dishService.findAll();
+        } else {
+            return dishService.findDishes(template);
+        }
     }
 }

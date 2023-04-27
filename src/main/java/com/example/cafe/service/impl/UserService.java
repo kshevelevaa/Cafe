@@ -26,31 +26,31 @@ public class UserService extends AbstractService<User, UserDao> implements UserD
         this.userDao = userDao;
     }
 
-    public boolean deleteWithNestedEntities(Long id){
+    public boolean deleteWithNestedEntities(Long id) {
         boolean deleteEntity = deleteById(id);
         boolean deleteBookingTable = bookingTableService.deleteByUserId(id);
-        boolean deleteOrder =  orderS.deleteByUserId(id);
+        boolean deleteOrder = orderS.deleteByUserId(id);
 
-        if (deleteOrder == false){
+        if (deleteOrder == false) {
             System.out.println("there were no orders");
-        }else {
+        } else {
             System.out.println("orders successfully deleted");
         }
 
-        if (deleteBookingTable == false ){
+        if (deleteBookingTable == false) {
             System.out.println("there were no booking tables");
-        }else {
+        } else {
             System.out.println("booking tables successfully deleted");
         }
 
-        if (deleteEntity == false ){
+        if (deleteEntity == false) {
             return false;
-        }else {
-           return true;
+        } else {
+            return true;
         }
     }
 
-    public User findByUsername(String name){
+    public User findByUsername(String name) {
         return userDao.findByUsername(name);
     }
 
@@ -64,6 +64,7 @@ public class UserService extends AbstractService<User, UserDao> implements UserD
 
         return user;
     }
+
     public User getUserAuth() {
 
         return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

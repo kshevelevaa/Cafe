@@ -3,7 +3,6 @@ package com.example.cafe.entity.impl;
 import com.example.cafe.entity.AbstractEntity;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;

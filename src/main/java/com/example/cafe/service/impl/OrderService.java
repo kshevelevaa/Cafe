@@ -25,7 +25,7 @@ public class OrderService extends AbstractService<Order, OrderDao> {
 
     public Order getLastOrder(Long user_id) {
         List<Order> allOrders = orderDao.findByUserId(user_id);
-        if (allOrders.isEmpty()){
+        if (allOrders.isEmpty()) {
             Order order = new Order();
             order.setUser_id(user_id);
             order.setSend(false);

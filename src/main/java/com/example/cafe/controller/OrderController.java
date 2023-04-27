@@ -22,22 +22,22 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping
-    public List<DishInOrder> getAll(@AuthenticationPrincipal User user){
+    public List<DishInOrder> getAll(@AuthenticationPrincipal User user) {
         return dishInOrderService.findDishByOrderId(orderService.getLastOrder(user.getId()).getId());
     }
 
     @DeleteMapping("/delete")
-    public void deleteDishInOrder(@RequestParam(value = "id", required = false) Long id){
+    public void deleteDishInOrder(@RequestParam(value = "id", required = false) Long id) {
         dishInOrderService.deleteById(id);
     }
 
     @PutMapping("/change")
     public DishInOrder changeDishCount(@RequestParam(value = "change") String change,
                                        @RequestParam(value = "dish_id") Long dish_id,
-                                       @RequestParam(value = "order_id") Long order_id){
-        if (change.equals("plus")){
+                                       @RequestParam(value = "order_id") Long order_id) {
+        if (change.equals("plus")) {
             return dishInOrderService.addDish(dish_id, order_id);
-        }else if (change.equals("minus")){
+        } else if (change.equals("minus")) {
             return dishInOrderService.minusDish(dish_id, order_id);
         }
         return null;
@@ -45,7 +45,7 @@ public class OrderController {
 
     @PutMapping("/send")
     public Order finishOrder(@RequestParam(value = "order_id") Long order_id,
-                             @AuthenticationPrincipal User user){
+                             @AuthenticationPrincipal User user) {
         Order currentOrder = orderService.findById(order_id);
         currentOrder.setSend(true);
         System.out.println(currentOrder);
