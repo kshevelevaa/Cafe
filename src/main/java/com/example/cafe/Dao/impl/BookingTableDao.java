@@ -2,6 +2,7 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.BookingTable;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -30,5 +31,17 @@ public class BookingTableDao extends AbstractDao<BookingTable> {
                 newBookingTable.getTime(),
                 newBookingTable.getPeopleCount(),
                 id);
+    }
+
+    public void deleteByUserId(Long user_id) {
+        String request = "DELETE FROM " + tableName + " WHERE user_id= ?";
+        jdbcTemplate.update(request, user_id);
+    }
+
+    public BookingTable findByUserId(Long user_id) {
+        String request = "SELECT * FROM " + tableName + " WHERE user_id= ?";
+        return jdbcTemplate.query(request, new Object[]{user_id}, new BeanPropertyRowMapper<>(BookingTable.class)).stream()
+                .findAny()
+                .orElse(null);
     }
 }

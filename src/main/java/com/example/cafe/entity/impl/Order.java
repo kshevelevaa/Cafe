@@ -1,7 +1,10 @@
 package com.example.cafe.entity.impl;
 
 import com.example.cafe.entity.AbstractEntity;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -20,6 +23,7 @@ public class Order extends AbstractEntity {
     private Long id;
     private Long user_id;
     private String address;
+    private boolean isSend;
 
     public Order(Long user_id, String address) {
         this.user_id = user_id;

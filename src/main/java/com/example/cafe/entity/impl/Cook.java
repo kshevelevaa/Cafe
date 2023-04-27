@@ -1,7 +1,10 @@
 package com.example.cafe.entity.impl;
 
 import com.example.cafe.entity.AbstractEntity;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -13,7 +16,7 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Cook  extends AbstractEntity {
+public class Cook extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)

@@ -1,46 +1,27 @@
 package com.example.cafe.controller;
 
-import com.example.cafe.service.Test;
+import com.example.cafe.entity.impl.User;
+import com.example.cafe.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
-    private Test userService;
+    private UserService userService;
 
-    @GetMapping("/save")
-    public String save() {
-        userService.save();
-        return "register";
+    @GetMapping("")
+    public List<User> getUsers() {
+        return userService.findAll();
     }
 
-//    @PostMapping("/register")
-//    public String registerUser(@ModelAttribute("user") User user, Model model){
-//        if (user.getPassword().length() < 4){
-//            System.out.println("password mast be more than 5 characters");
-//            return "register";
-//        }
-//
-//        if (userService.findUserByUsername(user.getUsername())!=null){
-//            System.out.println("user is already exist");
-//            return "register";
-//        }
-//
-//        if (user.getNumber().length() < 6){
-//            System.out.println("number mast be more than 5 characters");
-//            return "register";
-//        }
-//
-//        try{
-//            userService.saveUser(user);
-//            return "redirect:/login";
-//        }catch (Exception e){
-//            System.out.println("stranger error");
-//            return "register";
-//        }
-//
-//    }
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable(value = "id") Long id) {
+        userService.deleteById(id);
+    }
+
 }

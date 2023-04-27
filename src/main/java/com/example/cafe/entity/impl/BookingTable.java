@@ -1,7 +1,10 @@
 package com.example.cafe.entity.impl;
 
 import com.example.cafe.entity.AbstractEntity;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -36,7 +39,7 @@ public class BookingTable extends AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookingTable that = (BookingTable) o;
-        return  Objects.equals(id, that.id) && Objects.equals(user_id, that.user_id) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
+        return Objects.equals(id, that.id) && Objects.equals(user_id, that.user_id) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
     }
 
     @Override

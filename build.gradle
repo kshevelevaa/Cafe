@@ -26,15 +26,6 @@ repositories {
 }
 
 dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    implementation 'org.springframework.boot:spring-boot-starter-validation'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-//    compileOnly 'org.projectlombok:lombok'
-//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    runtimeOnly 'org.postgresql:postgresql'
-//    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-//    annotationProcessor 'org.projectlombok:lombok'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
@@ -53,8 +44,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation group: 'org.springframework.security', name: 'spring-security-test', version: '5.6.3'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-mail'
-
+//    implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 

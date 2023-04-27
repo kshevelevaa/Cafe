@@ -15,4 +15,12 @@ public class BookingTableService extends AbstractService<BookingTable, BookingTa
         super(bookingTableDao);
         this.bookingTableDao = bookingTableDao;
     }
+
+    public boolean deleteByUserId(Long user_id) {
+        if (currentDao.findByUserId(user_id) == null) {
+            return false;
+        }
+        currentDao.deleteByUserId(user_id);
+        return true;
+    }
 }

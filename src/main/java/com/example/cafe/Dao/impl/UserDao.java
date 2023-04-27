@@ -2,11 +2,18 @@ package com.example.cafe.Dao.impl;
 
 import com.example.cafe.Dao.AbstractDao;
 import com.example.cafe.entity.impl.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
+
 
 @Repository
 public class UserDao extends AbstractDao<User> {
+    @Autowired
+    SimpleJdbcCall simpleJdbcCall;
+
     public UserDao(JdbcTemplate jdbcTemplate) {
         super(jdbcTemplate);
         tableName = TableName.users;
@@ -30,5 +37,12 @@ public class UserDao extends AbstractDao<User> {
                 newUser.getPassword(),
                 newUser.getUsername(),
                 id);
+    }
+
+    public User findByUsername(String username) {
+        String request = "SELECT * FROM " + tableName + " WHERE username= ?";
+        return jdbcTemplate.query(request, new Object[]{username}, new BeanPropertyRowMapper<>(User.class)).stream()
+                .findAny()
+                .orElse(null);
     }
 }

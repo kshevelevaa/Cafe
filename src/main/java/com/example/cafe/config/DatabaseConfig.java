@@ -3,6 +3,7 @@ package com.example.cafe.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -27,7 +28,7 @@ public class DatabaseConfig implements WebMvcConfigurer {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost/Cafe");
+        dataSource.setUrl("jdbc:postgresql://postgres:5432/cafe");
         dataSource.setUsername("postgres");
         dataSource.setPassword("kotik1411");
         return dataSource;
@@ -38,4 +39,9 @@ public class DatabaseConfig implements WebMvcConfigurer {
         return new JdbcTemplate(dataSource());
     }
 
+
+    @Bean
+    public SimpleJdbcCall jdbcCall() {
+        return new SimpleJdbcCall(dataSource());
+    }
 }

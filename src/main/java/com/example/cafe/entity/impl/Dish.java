@@ -1,7 +1,10 @@
 package com.example.cafe.entity.impl;
 
 import com.example.cafe.entity.AbstractEntity;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -13,7 +16,7 @@ import java.util.Objects;
 @Table(name = "dish")
 @NoArgsConstructor
 @ToString
-public class Dish  extends AbstractEntity {
+public class Dish extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -35,11 +38,15 @@ public class Dish  extends AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dish dish = (Dish) o;
-        return  Objects.equals(id, dish.id) && Objects.equals(title, dish.title) && Objects.equals(category_id, dish.category_id);
+        return Objects.equals(id, dish.id) && Objects.equals(title, dish.title) && Objects.equals(category_id, dish.category_id);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, title, price, category_id, cook_id);
+    }
+
+    public String getPhotoAddress() {
+        return "assets/images/about-images/img.png";
     }
 }
